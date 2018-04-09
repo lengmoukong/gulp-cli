@@ -6,7 +6,7 @@
 fs-extra
 gulp-less
 gulp-autoprefixer
-gulp.spritesmith-multi
+gulp.spritesmith
 merge-stream
 gulp-concat
 browser-sync
@@ -15,4 +15,6 @@ browser-sync
 如若需要生成新的项目 只需要拷贝gulpfile.js和package-lock.json这个两个文件
 # 步骤
 gulp init 初始化目录
+
+
 gulp  运行
