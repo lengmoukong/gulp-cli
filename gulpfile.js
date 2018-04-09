@@ -4,8 +4,8 @@ let path   = require('path');
 let fse    = require('fs-extra'); // 通过npm下载
 let less = require('gulp-less');
 let autoprefixer = require('gulp-autoprefixer');
-let spritesmith = require('gulp.spritesmith-multi');
 let merge  = require('merge-stream');
+let spritesmith = require('gulp.spritesmith');
 let concat = require('gulp-concat');
 let browserSync = require('browser-sync').create();
 
@@ -41,7 +41,7 @@ gulp.task('less', function() {
 gulp.task('autoprefixer', function () {
     return gulp.src('dist/css/**/*.css')
         .pipe(autoprefixer({
-            browsers: ['ios 5','android 2.3'],
+            browsers: ['last 2 versions'],
             cascade: false
         }))
         .pipe(gulp.dest('dist/css'));
@@ -55,24 +55,22 @@ gulp.task('concat', function() {
 
 //合并生成雪碧图
 gulp.task('sprite', function () {
-    var spriteData = gulp.src('src/sprite/**/*.png')
+    let spriteData = gulp.src('src/sprite/**/*.png')
         .pipe(spritesmith({
-            spritesmith: function (options, sprite) {
-                options.cssName = sprite + '.less';
-                options.cssSpritesheetName = sprite;
-            }
+            imgName: 'sprite.png',
+            cssName: 'sprite.css'
         }));
-        var imgStream = spriteData.img
+        let imgStream = spriteData.img
         .pipe(gulp.dest('dist/img'))
 
-    var cssStream = spriteData.css
+         let cssStream = spriteData.css
         .pipe(concat('sprite.less'))
         .pipe(gulp.dest('src/less'))
     return merge(imgStream, cssStream)
 })
 // 默认任务
 gulp.task('default',function(){
-    var files = [
+    let files = [
         'dist/html/**/*.html',
         'dist/css/**/*.css',
         'src/js/**/*.js',
@@ -89,7 +87,7 @@ gulp.task('default',function(){
     // 监听编译文件
     gulp.watch("dist/html/**/*.html").on('change', browserSync.reload);
     gulp.watch("src/less/**/*.less", ['less']);
-    gulp.watch("src/img/**/*.png", ['sprite']);
-    gulp.watch("dist/css/**/*.css", ['auimgtoprefixer']);
+    gulp.watch("src/sprite/**/*.png", ['sprite']);
+    gulp.watch("dist/css/**/*.css", ['autoprefixer']);
 
 });

@@ -3,14 +3,21 @@ body{
   margin: 0;
   padding: 0 0;
 }
-@color:#f7f7f7;
+@color:#999;
+@bg_color:#f7f7f7;
 body{
-  background: @color;
+  background: @bg_color;
 }
 h1{
   font-size: 12px;
 }
 p{
   font-size: 24px;
-  color: blue;
+  color: red;
+  display: flex;
+  width: 200px;
+  height: 40px;
+  border: 2px solid @color;
+  border-radius: 30px;
+  background: #00cc99;
 }

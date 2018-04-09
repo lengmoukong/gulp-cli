@@ -1,0 +1,23 @@
+.sprite {
+  background-image: url(sprite.png);
+}
+.sprite__left_01 {
+  background-position: 0px -175px;
+  width: 164px;
+  height: 164px;
+}
+.sprite__left_block_01 {
+  background-position: 0px 0px;
+  width: 176px;
+  height: 175px;
+}
+.sprite__right_01 {
+  background-position: -164px -175px;
+  width: 164px;
+  height: 164px;
+}
+.sprite__right_block_01 {
+  background-position: -176px 0px;
+  width: 176px;
+  height: 175px;
+}

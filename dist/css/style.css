@@ -11,5 +11,12 @@ h1 {
 }
 p {
   font-size: 24px;
-  color: blue;
+  color: red;
+  display: -webkit-box;
+  display: flex;
+  width: 200px;
+  height: 40px;
+  border: 2px solid #999;
+  border-radius: 30px;
+  background: #00cc99;
 }
