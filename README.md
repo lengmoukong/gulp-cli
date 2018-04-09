@@ -13,5 +13,6 @@ browser-sync
 
 本项目已经生成目录结构
 如若需要生成新的项目 只需要拷贝gulpfile.js和package-lock.json这个两个文件
-# gulp init 初始化目录
-# gulp  运行
+# 步骤
+gulp init 初始化目录
+gulp  运行
